@@ -193,12 +193,12 @@ a:hover {
 
 
 /*laws page*/
-body {
+/*body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #d0e7f9; /* Dull aesthetic blue */
-}
+    background-color: #d0e7f9; /* Dull aesthetic blue 
+}*/
 .navbar {
     background-color: #1e2b3a;
     overflow: hidden;
