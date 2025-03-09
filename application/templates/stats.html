@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Legal Case Statistics</title>
+    <style>
+        :root {
+            --primary-dark: #0d1b2a;
+            --primary: #1b263b;
+            --secondary: #415a77;
+            --accent: #778da9;
+            --text: #e0e1dd;
+            --highlight: #4cc9f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary-dark);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        
+        header {
+            background-color: var(--primary);
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            color: var(--highlight);
+        }
+        
+        .subtitle {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .stat-card {
+            background-color: var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-title {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-percentage {
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+        
+        .positive {
+            color: #4ade80;
+        }
+        
+        .negative {
+            color: #f87171;
+        }
+        
+        .heatmap-container {
+            background-color: var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .heatmap-title {
+            margin-bottom: 1rem;
+            color: var(--highlight);
+        }
+        
+        .heatmap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 0.5rem;
+        }
+        
+        .state {
+            padding: 0.75rem;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+        
+        .info-section {
+            margin-top: 2.5rem;
+            background-color: var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-title {
+            margin-bottom: 1rem;
+            color: var(--highlight);
+        }
+        
+        .info-text {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        footer {
+            background-color: var(--primary);
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>India Legal Case Statistics</h1>
+        <p class="subtitle">Comprehensive dashboard of legal cases across India</p>
+    </header>
+    
+    <div class="container">
+        <div class="stats-container">
+            <div class="stat-card">
+                <p class="stat-title">TOTAL CASES</p>
+                <p class="stat-value">3,452,897</p>
+                <p class="stat-percentage">+2.4% <span class="negative">↑</span> from last month</p>
+            </div>
+            
+            <div class="stat-card">
+                <p class="stat-title">RESOLVED CASES</p>
+                <p class="stat-value">1,854,721</p>
+                <p class="stat-percentage">+3.8% <span class="positive">↑</span> from last month</p>
+            </div>
+            
+            <div class="stat-card">
+                <p class="stat-title">PENDING CASES</p>
+                <p class="stat-value">1,598,176</p>
+                <p class="stat-percentage">+0.7% <span class="negative">↑</span> from last month</p>
+            </div>
+            
+            <div class="stat-card">
+                <p class="stat-title">WOMEN & CHILDREN RELATED</p>
+                <p class="stat-value">892,456</p>
+                <p class="stat-percentage">+1.2% <span class="negative">↑</span> from last month</p>
+            </div>
+        </div>
+        
+        <div class="heatmap-container">
+            <h2 class="heatmap-title">Case Density by State</h2>
+            <div class="heatmap">
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.9);">Maharashtra<br>458,721</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.85);">Uttar Pradesh<br>402,345</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.8);">Delhi<br>352,619</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.75);">Karnataka<br>298,762</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.7);">Tamil Nadu<br>267,894</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.65);">West Bengal<br>234,561</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.6);">Gujarat<br>198,237</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.55);">Rajasthan<br>176,543</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.5);">Kerala<br>156,782</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.45);">Madhya Pradesh<br>143,267</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.4);">Bihar<br>123,456</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.35);">Punjab<br>98,761</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.3);">Haryana<br>87,654</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.25);">Telangana<br>76,543</div>
+                <div class="state" style="background-color: rgba(76, 201, 240, 0.2);">Odisha<br>65,432</div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h2 class="info-title">Case Resolution Trends</h2>
+            <p class="info-text">
+                The resolution rate has shown a positive trend over the past quarter with a 3.8% increase in resolved cases. 
+                However, pending cases continue to accumulate at a slower but steady rate of 0.7% per month.
+                Cases related to women and children constitute approximately 25.8% of total cases, highlighting the need for
+                specialized attention in this area.
+            </p>
+            <p class="info-text">
+                The five states with the highest case density account for over 51% of all legal cases in India,
+                indicating a geographical concentration that may require targeted intervention.
+            </p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Data last updated: March 2025 | Source: National Judicial Data Grid</p>
+    </footer>
+
+    <script>
+        // You can replace this with actual data fetching and processing logic
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample data - replace with actual API call or data source
+            const data = {
+                totalCases: 3452897,
+                resolvedCases: 1854721,
+                pendingCases: 1598176,
+                womenChildrenCases: 892456,
+                stateData: [
+                    { state: "Maharashtra", cases: 458721 },
+                    { state: "Uttar Pradesh", cases: 402345 },
+                    { state: "Delhi", cases: 352619 },
+                    { state: "Karnataka", cases: 298762 },
+                    { state: "Tamil Nadu", cases: 267894 },
+                    { state: "West Bengal", cases: 234561 },
+                    { state: "Gujarat", cases: 198237 },
+                    { state: "Rajasthan", cases: 176543 },
+                    { state: "Kerala", cases: 156782 },
+                    { state: "Madhya Pradesh", cases: 143267 },
+                    { state: "Bihar", cases: 123456 },
+                    { state: "Punjab", cases: 98761 },
+                    { state: "Haryana", cases: 87654 },
+                    { state: "Telangana", cases: 76543 },
+                    { state: "Odisha", cases: 65432 }
+                ]
+            };
+            
+            // You can implement functions to update the UI based on data
+            // updateStatistics(data);
+            // createHeatmap(data.stateData);
+        });
+        
+        // Example function to update statistics
+        function updateStatistics(data) {
+            document.querySelector('.stat-value:nth-child(1)').textContent = data.totalCases.toLocaleString();
+            document.querySelector('.stat-value:nth-child(2)').textContent = data.resolvedCases.toLocaleString();
+            document.querySelector('.stat-value:nth-child(3)').textContent = data.pendingCases.toLocaleString();
+            document.querySelector('.stat-value:nth-child(4)').textContent = data.womenChildrenCases.toLocaleString();
+        }
+        
+        // Example function to create a more sophisticated heatmap
+        function createHeatmap(stateData) {
+            const heatmapContainer = document.querySelector('.heatmap');
+            heatmapContainer.innerHTML = '';
+            
+            // Find max value for scaling
+            const maxCases = Math.max(...stateData.map(item => item.cases));
+            
+            stateData.forEach(item => {
+                const intensity = (item.cases / maxCases) * 0.9 + 0.1; // Scale from 0.1 to 1.0
+                const stateElement = document.createElement('div');
+                stateElement.className = 'state';
+                stateElement.style.backgroundColor = `rgba(76, 201, 240, ${intensity})`;
+                stateElement.innerHTML = `${item.state}<br>${item.cases.toLocaleString()}`;
+                heatmapContainer.appendChild(stateElement);
+            });
+        }
+    </script>
+</body>
+</html>
