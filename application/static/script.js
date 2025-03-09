@@ -1,49 +1,69 @@
 let isScrolling;
 let canScroll = true;
 
-// Track active section during scrolling
-document.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav ul li a');
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Track active section during scrolling
+    document.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav ul li a');
 
-    let currentSection = '';
+        let currentSection = '';
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 50 && pageYOffset < sectionTop + sectionHeight - 50) {
-            currentSection = section.getAttribute('id');
-        }
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= sectionTop - 50 && pageYOffset < sectionTop + sectionHeight - 50) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(currentSection)) {
+                link.classList.add('active');
+            }
+        });
     });
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(currentSection)) {
-            link.classList.add('active');
-        }
+    // Handle navbar link clicks
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            
+            // If it's a page link (login/signup), let the default navigation happen
+            if (href.includes('.html')) {
+                return;
+            }
+            
+            // For section links, handle smooth scrolling
+            e.preventDefault();
+            const targetSection = document.querySelector(href);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Initialize the slider
+    showSlides();
+
+    // Handle login and signup popups
+    document.querySelectorAll('.popup-trigger').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetPopup = document.querySelector(trigger.getAttribute('href'));
+            if (targetPopup) {
+                targetPopup.classList.add('active');
+            }
+        });
+    });
+
+    document.querySelectorAll('.popup .close').forEach(closeBtn => {
+        closeBtn.addEventListener('click', () => {
+            closeBtn.closest('.popup').classList.remove('active');
+        });
     });
 });
-
-// Handle navbar link clicks
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        
-        // If it's a page link (login/signup), let the default navigation happen
-        if (href.includes('.html')) {
-            return;
-        }
-        
-        // For section links, handle smooth scrolling
-        e.preventDefault();
-        const targetSection = document.querySelector(href);
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
-
 
 //Law script.js
 let slideIndex = 0;
@@ -66,7 +86,3 @@ function moveSlide(n) {
     if (slideIndex < 1) { slideIndex = totalSlides; }
     showSlides();
 }
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    showSlides();
-});
