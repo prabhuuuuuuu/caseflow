@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cases Management</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+
+      background-color: rgb(183, 200, 214);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    
+    .header {
+     background: linear-gradient(135deg, #3b4a7f, #1e2a47);
+      /* Midnight blue */
+      color: white;
+      width: 100%;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      margin-bottom: 4rem;
+      box-shadow: 0 8px 20px rgba(25, 25, 112, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+    
+    .header:hover {
+      transform: translateY(-5px);
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 2.5rem;
+      max-width: 1200px;
+    }
+    
+    .case-button {
+      text-decoration: none;
+      background: linear-gradient(135deg, #2c3e50, #1a2436);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 0;
+      width: 280px;
+      height: 320px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .case-button:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+    }
+    
+    .case-button:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: 0.5s;
+    }
+    
+    .case-button:hover:after {
+      left: 100%;
+    }
+    
+    .button-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .case-button:hover .button-content {
+      transform: translateY(-5px);
+    }
+    
+    .case-icon {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .case-button:hover .case-icon {
+      transform: scale(1.1);
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .case-icon svg {
+      width: 50px;
+      height: 50px;
+      fill: white;
+    }
+    
+    .case-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 0.5rem;
+      padding: 0 1rem;
+    }
+    
+    .public-button {
+      background: linear-gradient(135deg, #283c86, #45a6d7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .private-button {
+      background: linear-gradient(135deg, #4b0082, #815aad);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .button-subtitle {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: 0.5rem;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Cases</h1>
+    <div class="header-accent"></div>
+  </header>
+  
+  <div class="container">
+    <a href="./cases/public.html" class="case-button public-button">
+      <div class="button-content">
+        <div class="case-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <h2 class="case-title">Public Cases</h2>
+        <p class="button-subtitle">Browse and manage all publicly available cases</p>
+      </div>
+    </a>
+    
+    <a href="./cases/private.html" class="case-button private-button">
+      <div class="button-content">
+        <div class="case-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <h2 class="case-title">Private Cases</h2>
+        <p class="button-subtitle">Access your confidential and restricted cases</p>
+      </div>
+    </a>
+  </div>
+  
+  <script>
+    // Add subtle animation when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      const header = document.querySelector('.header');
+      const buttons = document.querySelectorAll('.case-button');
+      
+      setTimeout(() => {
+        header.style.opacity = '1';
+        header.style.transform = 'translateY(0)';
+      }, 300);
+      
+      buttons.forEach((button, index) => {
+        setTimeout(() => {
+          button.style.opacity = '1';
+          button.style.transform = 'translateY(0)';
+        }, 500 + (index * 200));
+      });
+    });
+  </script>
+</body>
+</html>
