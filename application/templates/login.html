@@ -1,8 +1,33 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 
 {% block title %}Login - CaseFlow{% endblock %}
 
 {% block content %}
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CaseFlow</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul class="left">
+            <li><a href="login.html" class="active">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+        </ul>
+        <ul class="right">
+            <li><a href="base.html#home">Home</a></li>
+            <li><a href="base.html#cases">Cases</a></li>
+            <li><a href="base.html#laws">Law Vault</a></li>
+            <li><a href="base.html#statistics">Statistics</a></li>
+            <li><a href="base.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+>>>>>>> 76d5a9123d3aaa10a991ae49084fb25e87ce74b0
     <div class="login-container">
         <form class="login-form" method="POST" action="{{ url_for('login') }}">
             <h2>Login</h2>
